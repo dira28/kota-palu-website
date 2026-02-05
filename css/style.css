@@ -385,3 +385,50 @@ footer {
     line-height: 1.7;
     max-width: 800px;
 }
+
+/* wisata */
+
+#wisata {
+    background: #f4f3ef;
+    text-align: center;
+}
+
+.wisata-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.wisata-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, .12);
+    transition: all .4s ease;
+    text-align: left;
+}
+
+.wisata-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 55px rgba(0, 74, 173, .25);
+}
+
+.wisata-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.wisata-card h3 {
+    padding: 18px 20px 8px;
+    color: #004aad;
+    font-size: 20px;
+}
+
+.wisata-card p {
+    padding: 0 20px 22px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+}
