@@ -206,12 +206,13 @@ section h2 {
     gap: 60px;
     align-items: start;
     justify-content: center;
-    margin: 0 auto; 
-    max-width: 1200px; 
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .info-carousel-wrapper {
-    margin-left: 40px; /* jarak dari gambar, bisa disesuaikan */
+    margin-left: 40px;
+    /* jarak dari gambar, bisa disesuaikan */
     position: relative;
     min-height: 250px;
 }
@@ -384,4 +385,37 @@ footer {
     font-size: 16px;
     line-height: 1.7;
     max-width: 800px;
+}
+
+.tombolMusik {
+    margin-top: 2px;
+    padding: 12px 28px;
+
+    background: linear-gradient(135deg, #004aad, #0077ff);
+    color: white;
+
+    border: none;
+    border-radius: 40px;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(0, 74, 173, 0.4);
+    transition: 0.25s ease;
+}
+
+
+.tombolMusik:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 74, 173, 0.5);
+    background: linear-gradient(135deg, #005fe0, #0090ff);
+}
+
+
+.tombolMusik:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 8px rgba(0, 74, 173, 0.4);
 }

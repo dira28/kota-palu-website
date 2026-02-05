@@ -2,6 +2,7 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kota Palu</title>
@@ -9,13 +10,32 @@
 </head>
 
 <body>
-
     <!-- ===== NAVBAR + HERO ===== -->
     <header id="home" class="ikn-hero">
         <nav>
             <div class="logo">
                 <img src="assets/palu.png" alt="Logo Kota Palu">
                 <h1>Kota Palu</h1>
+                <audio id="bgm" autoplay loop muted>
+                    <source src="assets/music/Video Lirik Lagu Daerah _ Palu Ngataku.mp3" type="audio/mp3">
+                </audio>
+                <button class="tombolMusik" onclick="unmuteMusic()">Play Music</button>
+                <button class="tombolMusik" onclick="muteMusic()">Stop Music</button>
+
+                <script>
+                    function unmuteMusic() {
+                        const bgm = document.getElementById('bgm');
+                        bgm.muted = false;
+                        bgm.play();
+                    }
+                </script>
+                <script>
+                    function muteMusic() {
+                        const bgm = document.getElementById('bgm');
+                        bgm.muted = true;
+                        bgm.pause();
+                    }
+                </script>
             </div>
             <ul>
                 <li><a href="#home">Beranda</a></li>
@@ -150,7 +170,7 @@
     </section>
 
     <footer>
-        <p>© 2026 Web Kota Palu</p>
+        <p>© 20267 Web Kota Palu</p>
     </footer>
 
     <script src="js/script.js"></script>
