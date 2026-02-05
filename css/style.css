@@ -6,6 +6,11 @@
     font-family: Arial, sans-serif;
 }
 
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 /* ===== NAVBAR ===== */
 nav {
     position: fixed;
@@ -18,6 +23,17 @@ nav {
     align-items: center;
     padding: 0 60px;
     z-index: 1000;
+    transition: background 0.5s ease, height 0.5s ease, padding 0.5s ease;
+    background: transparent;
+    /* Initial state */
+}
+
+nav.scrolled {
+    background: rgba(0, 74, 173, 0.95);
+    height: 70px;
+    padding: 0 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -51,6 +67,12 @@ nav a {
 
 nav a:hover {
     text-decoration: underline;
+}
+
+/* Highlight Active Section in Navbar */
+nav ul li a.active {
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 /* ===== HERO ===== */
@@ -531,17 +553,16 @@ section h2 {
     background: linear-gradient(135deg, #005fe0, #0090ff);
 }
 
+/* Music Button Feedback */
+.tombolMusik.active {
+    background-color: #004aad;
+    color: white;
+    border: 2px solid white;
+}
+
 .tombolMusik:active {
     transform: scale(0.96);
     box-shadow: 0 2px 8px rgba(0, 74, 173, 0.4);
-}
-
-/* Repeated Keyframes as requested */
-@keyframes heroImg {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
 }
 
 /* ===== ADAT ISTIADAT SECTION ===== */
@@ -700,10 +721,12 @@ section h2 {
 
 /* ===== MODERN FOOTER ===== */
 footer {
-    background: #0a1128; /* Deep Midnight Blue */
+    background: #0a1128;
+    /* Deep Midnight Blue */
     color: #cbd5e1;
     padding: 80px 60px 30px;
-    text-align: left; /* Resetting the center align */
+    text-align: left;
+    /* Resetting the center align */
 }
 
 .footer-container {
@@ -723,7 +746,8 @@ footer {
 }
 
 .footer-col h2.footer-logo span {
-    color: #c89b5c; /* Gold accent */
+    color: #c89b5c;
+    /* Gold accent */
 }
 
 .footer-col h4 {
@@ -798,4 +822,864 @@ footer {
     padding-top: 30px;
     font-size: 14px;
     color: #64748b;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+:root {
+    --primary-color: #004aad;
+    --secondary-color: #c89b5c;
+    --text-color: #333;
+    --bg-color: #f4f3ef;
+    --white: #ffffff;
+    --shadow: rgba(0, 74, 173, 0.2);
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: 0.3s;
+    transform-origin: center;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+    }
+
+    .logo h1 {
+        font-size: 18px;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 74, 173, 0.95);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-ikn {
+        grid-template-columns: 1fr;
+        padding: 100px 20px 40px;
+        gap: 30px;
+    }
+
+    .hero-left h2 {
+        font-size: 32px;
+    }
+
+    .image-stack {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .image-stack .hero-img:nth-child(1) {
+        grid-column: span 1;
+        height: 180px;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    .info-ikn {
+        padding: 80px 20px 120px;
+    }
+
+    .info-top {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        position: static;
+        transform: none;
+        margin-top: 60px;
+    }
+
+    .keberagaman-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 100px 20px;
+    }
+
+    .keberagaman-images {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .kesenian-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .adat-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .wisata-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    footer {
+        padding: 60px 20px 30px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 576px) {
+    nav {
+        height: 70px;
+        padding: 0 15px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .logo h1 {
+        font-size: 16px;
+    }
+
+    .hamburger span {
+        width: 20px;
+    }
+
+    nav ul {
+        top: 70px;
+    }
+
+    .hero-ikn {
+        padding: 80px 15px 30px;
+    }
+
+    .hero-left h2 {
+        font-size: 28px;
+    }
+
+    .hero-left p {
+        font-size: 14px;
+    }
+
+    .btn-hero {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    section h2 {
+        font-size: 24px;
+    }
+
+    .info-ikn {
+        padding: 60px 15px 100px;
+    }
+
+    .info-image img {
+        height: 250px;
+    }
+
+    .carousel-item h2 {
+        font-size: 20px;
+    }
+
+    .keberagaman-content h2 {
+        font-size: 28px;
+    }
+
+    .keberagaman-images {
+        grid-template-columns: 1fr;
+    }
+
+    .kesenian h2 {
+        font-size: 26px;
+    }
+
+    .kesenian-card {
+        height: 280px;
+    }
+
+    .adat-card h3 {
+        font-size: 18px;
+    }
+
+    .wisata-card h3 {
+        font-size: 18px;
+    }
+
+    .footer-col h2.footer-logo {
+        font-size: 22px;
+    }
+}
+
+/* ===== ENHANCED INTERACTIONS ===== */
+.info-card:hover {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 25px 45px rgba(0, 74, 173, 0.3);
+}
+
+.keberagaman-image-item:hover {
+    background: linear-gradient(135deg, #004aad 0%, #0066cc 100%);
+    color: white;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 74, 173, 0.4);
+}
+
+.keberagaman-image-item:hover p {
+    color: white;
+}
+
+.adat-card:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-top-color: #c89b5c;
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 74, 173, 0.25);
+}
+
+.wisata-card:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 55px rgba(0, 74, 173, 0.3);
+}
+
+.kesenian-card:hover {
+    transform: translateY(-18px) scale(1.04) rotateX(2deg);
+    box-shadow: 0 40px 90px rgba(0, 74, 173, 0.5);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Subtle background animations */
+body {
+    background: linear-gradient(45deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Enhanced button interactions */
+.btn-hero:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+    color: #004aad;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 74, 173, 0.4);
+}
+
+.tombolMusik:hover {
+    background: linear-gradient(135deg, #005fe0 0%, #0090ff 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 74, 173, 0.6);
+}
+
+/* Navbar hover effects */
+nav a:hover {
+    color: #c89b5c;
+    transform: translateY(-2px);
+}
+
+/* Footer link animations */
+.footer-col a:hover {
+    color: #c89b5c;
+    transform: translateX(5px);
+}
+
+/* Card entrance animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-card,
+.adat-card,
+.wisata-card,
+.kesenian-card {
+    animation: slideInUp 0.8s ease-out forwards;
+}
+
+.info-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.info-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.info-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* =========================================
+   REACTIVE & RESPONSIVE ENGINE
+   (Paste this at the very bottom of your CSS)
+   ========================================= */
+
+/* --- Tablet & Small Laptop (Max-Width: 1024px) --- */
+@media (max-width: 1024px) {
+    .ikn-hero {
+        height: auto;
+        min-height: 100vh;
+        /* Allow scrolling if content is tall */
+    }
+
+    .hero-ikn {
+        padding-top: 140px;
+        grid-template-columns: 1fr;
+        /* Stack hero content */
+        text-align: center;
+    }
+
+    .hero-left p {
+        margin: 0 auto 30px;
+        /* Center text */
+    }
+
+    .image-stack {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* FIX: The Info Cards Absolute Position Issue */
+    .info-ikn {
+        padding-bottom: 50px;
+    }
+
+    .info-top {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .info-image {
+        margin: 0 auto;
+    }
+
+    /* Reset absolute positioning for tablets so cards don't float weirdly */
+    .info-cards {
+        position: relative;
+        left: auto;
+        transform: none;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
+    .keberagaman-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .keberagaman-content {
+        order: 1;
+        /* Text first */
+    }
+
+    .keberagaman-images {
+        order: 2;
+        /* Images second */
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- Mobile Devices (Max-Width: 768px) --- */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 30px;
+        background: rgba(0, 74, 173, 1);
+        /* Solid color for readability */
+    }
+
+    /* Hamburger Menu Icon */
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+    }
+
+    /* Mobile Navigation Drawer */
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        /* Below navbar */
+        gap: 0;
+        flex-direction: column;
+        background-color: #004aad;
+        width: 100%;
+        text-align: center;
+        transition: 0.4s ease;
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+        /* Slide in */
+    }
+
+    .nav-menu li {
+        margin: 16px 0;
+    }
+
+    .nav-menu a {
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+    }
+
+    /* Stack Info Cards on Mobile */
+    .info-cards {
+        grid-template-columns: 1fr;
+        /* 1 card per row */
+        max-width: 400px;
+        margin: 40px auto 0;
+    }
+
+    .kesenian-grid {
+        grid-template-columns: 1fr;
+        /* Stack Kesenian cards */
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        /* Stack Footer */
+        text-align: center;
+    }
+
+    /* Center align footer line accent */
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* --- Small Mobile (Max-Width: 480px) --- */
+@media (max-width: 480px) {
+
+    /* Typography Scaling */
+    .hero-left h2 {
+        font-size: 32px;
+    }
+
+    section h2 {
+        font-size: 26px;
+    }
+
+    .logo h1 {
+        font-size: 16px;
+        /* Prevent logo breaking */
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    /* Adjust padding for small screens */
+    section {
+        padding: 60px 20px;
+    }
+
+    .hero-ikn {
+        padding: 120px 20px 60px;
+    }
+
+    /* Hide complex animations on very slow/small devices */
+    .hero-img {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .carousel-arrows {
+        position: relative;
+        bottom: 0;
+        margin-top: 20px;
+        justify-content: center;
+        left: auto;
+    }
+
+    /* Make buttons full width for easier tapping */
+    .btn-hero {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Keberagaman images 1 col */
+    .keberagaman-images {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   REACTIVE INTERACTION ENGINE (Paste at Bottom)
+   ========================================= */
+
+:root {
+    /* This makes animations feel like high-end apps (Apple/Google style) */
+    --elastic-bezier: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --smooth-bezier: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 1. HERO SECTION: The 3D Stack Effect */
+/* When hovering the image container, the images fan out */
+.image-stack:hover .hero-img:nth-child(1) {
+    transform: translateX(-40px) rotate(-5deg) scale(1.05);
+    z-index: 10;
+}
+
+.image-stack:hover .hero-img:nth-child(2) {
+    transform: translateY(-10px) scale(1.1);
+    z-index: 15;
+}
+
+.image-stack:hover .hero-img:nth-child(3) {
+    transform: translateX(40px) rotate(5deg) scale(1.05);
+    z-index: 10;
+}
+
+/* Individual Image Hover */
+.hero-img {
+    transition: transform 0.6s var(--elastic-bezier), box-shadow 0.4s ease;
+}
+
+/* 2. INFO CARDS: The "Lift & Glow" */
+.info-card {
+    transition: all 0.4s var(--smooth-bezier);
+    border-bottom: 3px solid transparent;
+}
+
+.info-card:hover {
+    transform: translateY(-15px);
+    /* Moves up */
+    background: white;
+    box-shadow: 0 20px 40px rgba(0, 74, 173, 0.15);
+    border-bottom: 3px solid #c89b5c;
+    /* Gold underline appears */
+}
+
+.info-card img {
+    transition: transform 0.5s var(--elastic-bezier);
+}
+
+.info-card:hover img {
+    transform: scale(1.2) rotate(-10deg);
+    /* Icon pops */
+}
+
+/* 3. KEBERAGAMAN: The "Focus" Effect */
+/* Makes the image Black & White by default, color on hover */
+.keberagaman-image-item img {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, transform 0.8s ease;
+}
+
+.keberagaman-image-item {
+    overflow: hidden;
+    /* Keeps zoom inside the box */
+}
+
+.keberagaman-image-item:hover img {
+    filter: grayscale(0%);
+    /* Returns to color */
+    transform: scale(1.15);
+    /* Slow zoom in */
+}
+
+.keberagaman-image-item p {
+    transition: 0.3s;
+    background: transparent;
+}
+
+.keberagaman-image-item:hover p {
+    background: #004aad;
+    color: white;
+    letter-spacing: 1px;
+    /* Text expands slightly */
+}
+
+/* 4. KESENIAN: The "Shine" Effect */
+.kesenian-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Creates a beam of light that passes across the card on hover */
+.kesenian-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.kesenian-card:hover::before {
+    left: 150%;
+    /* Moves the light across */
+}
+
+.kesenian-card:hover .kesenian-overlay {
+    backdrop-filter: blur(5px);
+    /* Blurs the image behind text */
+}
+
+/* 5. ADAT ISTIADAT: The "Border Fill" */
+.adat-card {
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s;
+}
+
+/* A background color sweeps up from the bottom */
+.adat-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to top, #f0f8ff, white);
+    z-index: -1;
+    transition: height 0.4s var(--smooth-bezier);
+}
+
+.adat-card:hover::after {
+    height: 100%;
+}
+
+.adat-card:hover h3 {
+    color: #c89b5c;
+    /* Title turns gold */
+    transform: translateX(10px);
+    /* Slides right */
+}
+
+.adat-icon img {
+    transition: transform 0.6s var(--elastic-bezier);
+}
+
+.adat-card:hover .adat-icon img {
+    transform: scale(1.1) translateY(-5px);
+}
+
+/* 6. BUTTONS & CLICKS: The "Tactile Press" */
+/* Applies to all buttons and cards when clicked */
+.btn-hero:active,
+.tombolMusik:active,
+.info-card:active,
+.wisata-card:active {
+    transform: scale(0.95) !important;
+    /* Physically shrinks slightly */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+    transition: 0.1s;
+    /* Fast reaction */
+}
+
+/* 7. WISATA: The "Floating Caption" */
+.wisata-card h3 {
+    transition: color 0.3s;
+}
+
+.wisata-card:hover h3 {
+    color: #c89b5c;
+    text-decoration: underline;
+}
+
+.wisata-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== SCROLL REACTIVITY ENGINE ===== */
+
+/* 1. The Initial Hidden State */
+/* Update your existing .reveal class with these properties */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+    /* Shrunk and lowered */
+    transition:
+        opacity 0.6s ease,
+        transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Bouncy exit/entry */
+    filter: blur(5px);
+    /* Adds a soft "waking up" effect */
+}
+
+/* When the element is in view */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    /* Full size and position */
+    filter: blur(0px);
+}
+
+/* Add a different transition for scrolling UP */
+/* This makes it feel smoother when the user is moving fast */
+.reveal:not(.active) {
+    transition: all 0.5s ease-in;
+}
+
+/* Staggered Delay for Grids (Children pop up one by one) */
+.reveal-delayed>* {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reveal-delayed.active>* {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific delays for a "Wave" effect */
+.reveal-delayed.active>*:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.reveal-delayed.active>*:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.reveal-delayed.active>*:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.reveal-delayed.active>*:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+/* 3. Parallax Background Effect */
+.ikn-hero {
+    background-attachment: fixed;
+    /* Background stays, content moves */
+}
+
+/* ===== UPDATED TEAM BUBBLE STYLES ===== */
+.image-bubble {
+    position: fixed;
+    width: 130px;
+    height: 130px;
+    background: white;
+    border-radius: 50%;
+    border: 4px solid #c89b5c;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    display: block;
+    /* Keep block but handle visibility with opacity */
+    z-index: 2000;
+    pointer-events: none;
+    opacity: 0;
+    /* Hidden by default */
+    transform: translate(-50%, -120%) scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s var(--elastic-bezier);
+    overflow: visible;
+}
+
+.image-bubble.active {
+    opacity: 1;
+    transform: translate(-50%, -120%) scale(1);
+}
+
+.image-bubble img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* The little arrow at the bottom of the bubble */
+.bubble-tail {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #c89b5c;
+}
+
+/* Hover effect on names */
+.team-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.team-link:hover {
+    color: #c89b5c !important;
+    padding-left: 10px;
 }

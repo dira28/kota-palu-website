@@ -14,30 +14,15 @@
     <header id="home" class="ikn-hero">
         <nav>
             <div class="logo">
-                <img src="assets/palu.png" alt="Logo Kota Palu">
+                <img src="assets/palu.png" alt="Logo Kota Palu" loading="lazy">
                 <h1>Kota Palu</h1>
                 <audio id="bgm" autoplay loop muted>
                     <source src="assets/music/Video Lirik Lagu Daerah _ Palu Ngataku.mp3" type="audio/mp3">
                 </audio>
                 <button class="tombolMusik" onclick="unmuteMusic()">Play Music</button>
                 <button class="tombolMusik" onclick="muteMusic()">Stop Music</button>
-
-                <script>
-                    function unmuteMusic() {
-                        const bgm = document.getElementById('bgm');
-                        bgm.muted = false;
-                        bgm.play();
-                    }
-                </script>
-                <script>
-                    function muteMusic() {
-                        const bgm = document.getElementById('bgm');
-                        bgm.muted = true;
-                        bgm.pause();
-                    }
-                </script>
             </div>
-            <ul>
+            <ul class="nav-menu">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#info">Info Daerah</a></li>
                 <li><a href="#keberagaman">Keberagaman</a></li>
@@ -45,6 +30,11 @@
                 <li><a href="#kesenian">Kesenian</a></li>
                 <li><a href="#wisata">Wisata</a></li>
             </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
 
         <div class="hero-ikn">
@@ -59,11 +49,14 @@
 
             <div class="hero-right">
                 <div class="image-stack">
-                    <img class="hero-img" src="https://cdn.antaranews.com/cache/1200x800/2019/12/13/TOGEAN-ISLAND.jpg">
+                    <img class="hero-img" src="https://cdn.antaranews.com/cache/1200x800/2019/12/13/TOGEAN-ISLAND.jpg"
+                        loading="lazy">
                     <img class="hero-img"
-                        src="https://asset.kompas.com/crops/EDLDyqpS3bCYVDek9PYr0u5yf30=/82x11:670x403/1200x800/data/photo/2022/08/08/62f0e39a1dee7.jpeg">
+                        src="https://asset.kompas.com/crops/EDLDyqpS3bCYVDek9PYr0u5yf30=/82x11:670x403/1200x800/data/photo/2022/08/08/62f0e39a1dee7.jpeg"
+                        loading="lazy">
                     <img class="hero-img"
-                        src="https://asset.kompas.com/crops/6fwWFT3qzTyHc0YC8dEjm2ydUPk=/10x13:677x457/1200x800/data/photo/2022/02/06/61ff925081723.jpg">
+                        src="https://asset.kompas.com/crops/6fwWFT3qzTyHc0YC8dEjm2ydUPk=/10x13:677x457/1200x800/data/photo/2022/02/06/61ff925081723.jpg"
+                        loading="lazy">
                 </div>
             </div>
         </div>
@@ -72,7 +65,7 @@
     <section id="info" class="info-ikn">
         <div class="info-top">
             <div class="info-image">
-                <img src="https://superlive.id/storage/superadventure/2019/02/11/92417bc6bbf5.jpg">
+                <img src="https://superlive.id/storage/superadventure/2019/02/11/92417bc6bbf5.jpg" loading="lazy">
             </div>
 
             <div class="info-carousel">
@@ -136,15 +129,15 @@
 
         <div class="info-cards">
             <div class="info-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png">
+                <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" loading="lazy">
                 <p>Kota Palu<br>Ramah Lingkungan</p>
             </div>
             <div class="info-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png">
+                <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" loading="lazy">
                 <p>Budaya & Sejarah<br>Kota Palu</p>
             </div>
             <div class="info-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png">
+                <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png" loading="lazy">
                 <p>Ekonomi Lokal<br>Penggerak Sulawesi Tengah</p>
             </div>
         </div>
@@ -249,7 +242,7 @@
             <div class="kesenian-grid">
                 <div class="kesenian-card">
                     <img src="https://image.idntimes.com/post/20231229/358167197-739487011515825-5775336983517216433-n-a61658b270ed6393d191cc28525d5f98-d99cffa568d6e8a9c3938c900a224590.jpeg"
-                        alt="Tari Dero">
+                        alt="Tari Dero" loading="lazy">
                     <div class="kesenian-overlay">
                         <h3>Tari Dero</h3>
                         <p>Tarian kebersamaan khas Sulawesi Tengah.</p>
@@ -258,7 +251,7 @@
 
                 <div class="kesenian-card">
                     <img src="https://assets.promediateknologi.id/crop/0x0:0x0/1200x800/webp/photo/kilat/c257e081a0a22e298ee85678eb9275ff.jpg"
-                        alt="Musik Tradisional Kaili">
+                        alt="Musik Tradisional Kaili" loading="lazy">
                     <div class="kesenian-overlay">
                         <h3>Musik Tradisional</h3>
                         <p>Irama gendang dan alat musik Kaili.</p>
@@ -267,7 +260,7 @@
 
                 <div class="kesenian-card">
                     <img src="https://images.tokopedia.net/blog-tokopedia-com/uploads/2018/04/oleh-oleh-palu-3-Metro-Sulawesi.jpg"
-                        alt="Kerajinan Tangan">
+                        alt="Kerajinan Tangan" loading="lazy">
                     <div class="kesenian-overlay">
                         <h3>Kerajinan Tangan</h3>
                         <p>Seni anyaman bernilai budaya tinggi.</p>
@@ -283,7 +276,7 @@
         <div class="wisata-grid">
             <div class="wisata-card">
                 <img src="https://asset.kompas.com/crops/EDLDyqpS3bCYVDek9PYr0u5yf30=/82x11:670x403/1200x800/data/photo/2022/08/08/62f0e39a1dee7.jpeg"
-                    alt="Teluk Palu">
+                    alt="Teluk Palu" loading="lazy">
                 <h3>Teluk Palu</h3>
                 <p>
                     Terletak di pantai barat Sulawesi Tengah, Teluk Palu menjadi kawasan strategis
@@ -293,7 +286,8 @@
             </div>
 
             <div class="wisata-card">
-                <img src="https://cdn.antaranews.com/cache/1200x800/2019/12/13/TOGEAN-ISLAND.jpg" alt="Pantai Talise">
+                <img src="https://cdn.antaranews.com/cache/1200x800/2019/12/13/TOGEAN-ISLAND.jpg" alt="Pantai Talise"
+                    loading="lazy">
                 <h3>Pantai Talise</h3>
                 <p>
                     Destinasi favorit warga untuk menikmati senja dengan latar
@@ -304,7 +298,7 @@
 
             <div class="wisata-card">
                 <img src="https://asset.kompas.com/crops/6fwWFT3qzTyHc0YC8dEjm2ydUPk=/10x13:677x457/1200x800/data/photo/2022/02/06/61ff925081723.jpg"
-                    alt="Lembah Bada">
+                    alt="Lembah Bada" loading="lazy">
                 <h3>Lembah Bada</h3>
                 <p>
                     Berada di Kecamatan Lore Selatan dalam kawasan Taman Nasional Lore Lindu.
@@ -314,7 +308,8 @@
             </div>
 
             <div class="wisata-card">
-                <img src="https://superlive.id/storage/superadventure/2019/02/11/92417bc6bbf5.jpg" alt="Danau Lindu">
+                <img src="https://superlive.id/storage/superadventure/2019/02/11/92417bc6bbf5.jpg" alt="Danau Lindu"
+                    loading="lazy">
                 <h3>Danau Lindu</h3>
                 <p>
                     Danau indah di ketinggian 1.000 mdpl dalam Taman Nasional Lore Lindu.
@@ -334,13 +329,19 @@
             </div>
 
             <div class="footer-col">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="#">Beranda</a></li>
-                    <li><a href="#adat">Adat Istiadat</a></li>
-                    <li><a href="#kesenian">Kesenian</a></li>
-                    <li><a href="#wisata">Wisata</a></li>
+                <h4>Kelompok Kita~</h4>
+                <ul class="team-list">
+                    <li><a href="#" class="team-link" data-image="assets/img_team/Dira.jpeg">Dira</a></li>
+                    <li><a href="#" class="team-link" data-image="assets/img_team/Enriko.png">Enriko</a></li>
+                    <li><a href="#" class="team-link" data-image="assets/img_team/Mas_Galih.png">Galih Priadiwangsa Pratama</a></li>
+                    <li><a href="#" class="team-link" data-image="assets/img_team/Fabian.jpeg">Fabian</a></li>
+                    <li><a href="#" class="team-link" data-image="assets/img_team/Gerad.jpeg">Gerrad</a></li>
                 </ul>
+            </div>
+
+            <div id="image-bubble" class="image-bubble">
+                <img src="" alt="Member Preview">
+                <div class="bubble-tail"></div>
             </div>
 
             <div class="footer-col">
